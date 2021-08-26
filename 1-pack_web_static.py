@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/python3
 # prepare tar file
 from fabric.api import local
 from time import strftime
