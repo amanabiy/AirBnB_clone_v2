@@ -65,9 +65,9 @@ def html_fetch_states():
     """display html page
        fetch sorted states to insert into html in UL tag
     """
-    state_objs = [s for s in storage.all("State").values()]
+    states = [s for s in storage.all("State").values()]
     return render_template('7-states_list.html',
-                           state_objs=state_objs)
+                           states=states)
 
 
 if __name__ == '__main__':
