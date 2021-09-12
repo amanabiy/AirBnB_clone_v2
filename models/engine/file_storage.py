@@ -63,6 +63,10 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
+    def close(self):
+        ''' Deserialize  the JSON file to objects '''
+        self.reload()
+
     def delete(self, obj=None):
         ''' delete an existing element '''
         if obj is None:
@@ -71,7 +75,3 @@ class FileStorage:
             if obj is value:
                 del self.__objects[key]
                 break
-
-    def close(self):
-        ''' Deserialize  the JSON file to objects '''
-        self.reload()

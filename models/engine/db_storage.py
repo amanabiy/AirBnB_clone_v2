@@ -38,7 +38,7 @@ class DBStorage():
         '''
         dict_return = {}
         if cls:
-            cls = eval(cls) if type(cls) == str else cls
+            cls = eval(cls) if isinstance(cls, str) else cls
             objs = self.__session.query(cls).all()
         else:
             objs = self.__session.query(State).all()
@@ -56,6 +56,10 @@ class DBStorage():
         ''' Adds a new element to the database '''
         self.__session.add(obj)
 
+    def close(self):
+        ''' Closes and stops the session '''
+        self.__session.close()
+
     def save(self):
         ''' Saves all changes to database  '''
         self.__session.commit()
@@ -72,7 +76,3 @@ class DBStorage():
         session_factory = sessionmaker(bind=self.__engine,
                                        expire_on_commit=False)
         self.__session = scoped_session(session_factory)
-
-    def close(self):
-        ''' Closes and stops the session '''
-        self.__session.close()
