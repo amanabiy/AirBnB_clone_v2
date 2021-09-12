@@ -4,7 +4,7 @@ Fabric script method deploy
 """
 from fabric.api import env, put, run
 import os.path
-env.hosts = ['web1', 'web2']
+env.hosts = ['34.75.72.161']
 
 
 def do_deploy(archive_path):
@@ -25,5 +25,5 @@ def do_deploy(archive_path):
         run("rm -rf {}".format(symlink))
         run("ln -s {} {}".format(path_no_ext, symlink))
         return True
-    except:
+    except BaseException:
         return False
