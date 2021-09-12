@@ -31,6 +31,7 @@ def python(text='is cool'):
     """ Python plus a given text """
     return "Python {}".format(text.replace('_', ' '))
 
+
 @app.route('/number/<int:n>', strict_slashes=False)
 def isNumber(n):
     """ Displays n is a number """
