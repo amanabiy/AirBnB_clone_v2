@@ -2,7 +2,7 @@
 """
 Flask web frame work
 """
-from flask import Flask
+from flask import Flask, render_template
 from flask.templating import render_template
 from models import storage
 from models import *
